@@ -14,17 +14,17 @@ class BlogPost extends Component {
       </div>
     )
   }
-}
+};
 
 BlogPost.propTypes = {
   data: PropTypes.object.isRequired
-}
+};
 
-export default BlogPost
+export default BlogPost;
 
 export const pageQuery = graphql`
-  query blogPostQuery($pfad: String!){
-    contentfulBlogPost(pfad: {eq: $pfad}) {
+  query blogPostQuery($path: String!){
+    contentfulBlogPost(pfad: {eq: $path}) {
       titel
       pfad
       beschreibung {
@@ -34,4 +34,4 @@ export const pageQuery = graphql`
       }
     }
   }
-  `
+`
