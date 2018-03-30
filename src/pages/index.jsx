@@ -1,5 +1,6 @@
 import React from 'react';
 import g from 'glamorous';
+import Link from 'gatsby-link';
 
 import { rhythm } from '../utils/typography';
 
@@ -13,10 +14,14 @@ export default ({ data }) => {
       >
         Ein weiterer generischer Blog.
       </g.H1>
+
       <g.H4 margin={ rhythm(1) + ' 0 0 0' }>{ data.allContentfulBlogPost.totalCount }&nbsp;Einträge</g.H4>
+
       {data.allContentfulBlogPost.edges.map(({ node }, index) =>
+
         <div key={ index }>
 
+          <Link to={ node.pfad }>
           <g.H3 margin={ rhythm(2.5) + ' 0 ' + rhythm(1 / 2) + ' 0' }>
 
             { node.titel }&nbsp;
@@ -24,6 +29,7 @@ export default ({ data }) => {
             <g.Span color={ '#BBB' }>&ndash;&nbsp;{ node.createdAt }</g.Span>
 
           </g.H3>
+          </Link>
 
           <p>{ node.childContentfulBlogPostBeschreibungTextNode.childMarkdownRemark.excerpt }</p>
           
@@ -47,6 +53,7 @@ export const query = graphql`
       edges {
         node {
           titel
+          pfad
           createdAt(formatString: "DD MMMM, YYYY", locale: "de")
           childContentfulBlogPostBeschreibungTextNode {
             childMarkdownRemark {
