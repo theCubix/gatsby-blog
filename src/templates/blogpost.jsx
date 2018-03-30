@@ -6,11 +6,13 @@ class BlogPost extends Component {
   render() {
     const {
       titel,
-      beschreibung
+      beschreibung,
+      bild
     } = this.props.data.contentfulBlogPost
     return (
       <div>
         <h1>{ titel }</h1>
+        <Img resolutions={bild.resolutions} css={{ maxWidth: '100%' }} />
         <p>Ungefähr { beschreibung.childMarkdownRemark.timeToRead } Minute Lesezeit</p>
         <div dangerouslySetInnerHTML={{__html: beschreibung.childMarkdownRemark.html}} />
       </div>
@@ -29,6 +31,15 @@ export const pageQuery = graphql`
     contentfulBlogPost(pfad: {eq: $path}) {
       titel
       pfad
+      bild {
+        resolutions(width: 650) {
+          base64
+          src
+          srcSet
+          height
+          width
+        }
+      }
       beschreibung {
         childMarkdownRemark {
           html
