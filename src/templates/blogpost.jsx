@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 
 class BlogPost extends Component {
   render() {
@@ -9,7 +10,8 @@ class BlogPost extends Component {
     } = this.props.data.contentfulBlogPost
     return (
       <div>
-        <h1>{titel}</h1>
+        <h1>{ titel }</h1>
+        <p>Ungefähr { beschreibung.childMarkdownRemark.timeToRead } Minute Lesezeit</p>
         <div dangerouslySetInnerHTML={{__html: beschreibung.childMarkdownRemark.html}} />
       </div>
     )
@@ -30,6 +32,7 @@ export const pageQuery = graphql`
       beschreibung {
         childMarkdownRemark {
           html
+          timeToRead
         }
       }
     }
