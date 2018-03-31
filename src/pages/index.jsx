@@ -25,12 +25,12 @@ export default ({ data }) => {
             Der Blog von Max Forrer
           </g.H1>
 
-          <g.H4
+          <g.P
             margin={ rhythm(1) + ' 0 0 0' }
             color={ '#C7B680' }
           >
             { data.allContentfulBlogPost.totalCount }&nbsp;Einträge
-          </g.H4>
+          </g.P>
         </g.Div>
       </g.Div>
 
