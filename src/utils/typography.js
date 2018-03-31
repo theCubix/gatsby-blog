@@ -10,7 +10,7 @@ import Typography from 'typography';
 import oceanBeachTheme from 'typography-theme-ocean-beach';
 
 const typography = new Typography({
-  baseFontSize: '22px',
+  baseFontSize: '20px',
   baseLineHeight: 1.62,
   scaleRatio: 2,
   googleFonts: [
