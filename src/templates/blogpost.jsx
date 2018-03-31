@@ -12,7 +12,7 @@ class BlogPost extends Component {
     return (
       <div>
         <h1>{ titel }</h1>
-        <Img resolutions={bild.resolutions} css={{ maxWidth: '100%' }} />
+        <Img title={bild.title} alt={bild.description} resolutions={bild.resolutions} css={{ maxWidth: '100%' }} />
         <p>Ungefähr { beschreibung.childMarkdownRemark.timeToRead } Minute Lesezeit</p>
         <div dangerouslySetInnerHTML={{__html: beschreibung.childMarkdownRemark.html}} />
       </div>
@@ -32,7 +32,9 @@ export const pageQuery = graphql`
       titel
       pfad
       bild {
-        resolutions(width: 924) {
+        title
+        description
+        resolutions(width: 700) {
           base64
           src
           aspectRatio
