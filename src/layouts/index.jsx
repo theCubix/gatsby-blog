@@ -7,7 +7,7 @@ import { rhythm } from '../utils/typography';
 
 export default ({ children, data }) => 
   <g.Div
-    margin={'2em auto 0 auto'}
+    margin={'0 auto'}
     maxWidth={700}
     padding={'16px'}
     paddingTop={rhythm(1.5)}
