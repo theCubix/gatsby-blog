@@ -13,7 +13,7 @@ class BlogPost extends Component {
       <div>
         <h1>{ titel }</h1>
         <Img title={bild.title} alt={bild.description} resolutions={bild.resolutions} css={{ maxWidth: '100%' }} />
-        <p>Ungefähr { beschreibung.childMarkdownRemark.timeToRead } Minute Lesezeit</p>
+        <p>Ungefähr { beschreibung.childMarkdownRemark.timeToRead == 1 ? '1 Minute' : beschreibung.childMarkdownRemark.timeToRead + ' Minuten' } Lesezeit</p>
         <div dangerouslySetInnerHTML={{__html: beschreibung.childMarkdownRemark.html}} />
       </div>
     )

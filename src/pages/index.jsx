@@ -56,9 +56,9 @@ export default ({ data }) => {
             
             <g.P
               margin={ rhythm(1 / 4) + ' 0 0 0' }
-              opacity={ 1 }
+              opacity={ 0.8 }
               fontWeight={ 'bold' }
-            >{ node.childContentfulBlogPostBeschreibungTextNode.childMarkdownRemark.timeToRead }&nbsp;Minute Lesezeit</g.P>
+            >Ungefähr { node.childContentfulBlogPostBeschreibungTextNode.childMarkdownRemark.timeToRead == 1 ? '1 Minute' : node.childContentfulBlogPostBeschreibungTextNode.childMarkdownRemark.timeToRead + ' Minuten' } Lesezeit</g.P>
 
           </div>
         )}
