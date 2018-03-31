@@ -32,9 +32,10 @@ export const pageQuery = graphql`
       titel
       pfad
       bild {
-        resolutions(width: 650) {
+        resolutions(width: 924) {
           base64
           src
+          aspectRatio
           srcSet
           height
           width
